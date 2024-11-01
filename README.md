@@ -15,7 +15,8 @@ This repository contains a setup script to configure a PC to auto-login, launch 
    git clone https://github.com/NWalen/TABS-Website-Viewer.git
    cd TABS-Website-Viewer
 
-2.	Run the setup script. Make sure to run it with root privileges:
+2.	Run the setup script. Make sure to run it with root privileges Then Reboot:
 
-   ```bash
-   sudo ./setup.sh
+    ```bash
+    sudo ./setup.sh
+    sudo reboot now
