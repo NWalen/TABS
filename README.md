@@ -16,3 +16,6 @@ This repository contains a setup script to configure a PC to auto-login, launch 
    cd TABS-Website-Viewer
 
 2.	Run the setup script. Make sure to run it with root privileges:
+
+   ```bash
+   sudo ./setup.sh
