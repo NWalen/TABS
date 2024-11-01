@@ -14,3 +14,5 @@ This repository contains a setup script to configure a PC to auto-login, launch 
    ```bash
    git clone https://github.com/NWalen/TABS-Website-Viewer.git
    cd TABS-Website-Viewer
+
+2.	Run the setup script. Make sure to run it with root privileges:
