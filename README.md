@@ -1,6 +1,6 @@
 # TABS Setup
 
-This repository contains a setup script to configure a PC to auto-login, launch Brave in full-screen mode with Openbox, and simulate keypresses. This setup is ideal for kiosk or display applications.
+This repository contains a setup script to configure a PC to auto-login, launch Brave in full-screen mode with Openbox, and simulate keypresses. This setup is ideal for kiosk or display applications. Beware, I am not a programmer, This is a script I created with ChatGPT.
 
 ## Requirements
 
