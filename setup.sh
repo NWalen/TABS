@@ -2,9 +2,14 @@
 
 # Check if the script is run as root
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 
+   echo "This script must be run as root." 
    exit 1
 fi
+
+# Variables
+USERNAME="nwalen"
+USER_HOME="/home/$USERNAME"
+BASH_PROFILE="$USER_HOME/.bash_profile"
 
 # Update the package list and install required packages
 apt update
@@ -17,7 +22,7 @@ apt update
 apt install -y brave-browser
 
 # Create Brave startup script
-cat << 'EOF' > ~/start_brave_fullscreen.sh
+cat << 'EOF' > $USER_HOME/start_brave_fullscreen.sh
 #!/bin/bash
 export DISPLAY=:0
 brave-browser --force-device-scale-factor=1.5 &
@@ -30,14 +35,26 @@ xdotool keydown F11; xdotool keyup F11
 EOF
 
 # Make the Brave startup script executable
-chmod +x ~/start_brave_fullscreen.sh
+chmod +x $USER_HOME/start_brave_fullscreen.sh
+chown $USERNAME:$USERNAME $USER_HOME/start_brave_fullscreen.sh
 
-# Configure Openbox autostart to run the Brave script
-mkdir -p ~/.config/openbox
-echo "~/start_brave_fullscreen.sh &" > ~/.config/openbox/autostart
+# Ensure Openbox configuration directory exists
+mkdir -p $USER_HOME/.config/openbox
 
-# Configure .bash_profile to start X and Openbox on login
-BASH_PROFILE=~/.bash_profile
+# Create Openbox autostart configuration to run the Brave script
+echo "$USER_HOME/start_brave_fullscreen.sh &" > $USER_HOME/.config/openbox/autostart
+chown -R $USERNAME:$USERNAME $USER_HOME/.config/openbox
+
+# Check and fix ownership of .bash_profile if needed
+if [ -f "$BASH_PROFILE" ]; then
+  chown $USERNAME:$USERNAME "$BASH_PROFILE"
+else
+  # Create .bash_profile if it doesn't exist
+  touch "$BASH_PROFILE"
+  chown $USERNAME:$USERNAME "$BASH_PROFILE"
+fi
+
+# Add commands to .bash_profile to start X and Openbox on login
 if ! grep -q "startx" "$BASH_PROFILE"; then
   echo '
 if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
