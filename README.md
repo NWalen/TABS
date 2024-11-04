@@ -18,5 +18,6 @@ This repository contains a setup script to configure a PC to auto-login, launch 
 2.	Run the setup script. Make sure to run it with root privileges Then Reboot:
 
     ```bash
+    sudo chmod +x setup.sh
     sudo ./setup.sh
     sudo reboot now
