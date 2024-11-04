@@ -52,20 +52,6 @@ Notes
 •	Security Consideration:
 •	Enabling auto-login bypasses the login prompt, which can be a security risk.
 •	Ensure the system is in a secure environment where unauthorized access is not a concern.
-•	Customization:
-•	To change the URL or add command-line options for the Brave browser, edit the start_brave_fullscreen.sh script located in the user’s home directory:
-```
-/home/username/start_brave_fullscreen.sh
-```
-For example, to open a specific URL:
-```
-#!/bin/bash
-export DISPLAY=:0
-brave-browser --start-fullscreen --force-device-scale-factor=1.5 "https://example.com" &
-```
-
-•	Scaling Factor:
-•	The --force-device-scale-factor=1.5 option adjusts the browser’s scaling. Modify this value to suit your display’s resolution and DPI.
 
 Troubleshooting
 
