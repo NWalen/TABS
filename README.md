@@ -117,13 +117,15 @@ sudo rm -r /home/username/.config/openbox
 ```
 
 3.	Revert .bash_profile:
+
  •	Open /home/username/.bash_profile and remove the block that starts startx on login.
+ 
 4.	Uninstall Installed Packages (Optional):
 ```
 sudo apt remove --purge brave-browser openbox xinit xserver-xorg
 sudo apt autoremove
 ```
-3. Updating
+Updating
 
 To update Applications you can just use the usual updating method:
 ```
