@@ -124,6 +124,7 @@ sudo apt remove --purge brave-browser openbox xinit xserver-xorg
 sudo apt autoremove
 ```
 3. Updating
+
 To update Applications you can just use the usual updating method:
 ```
 sudo apt update & sudo apt upgrade -y
