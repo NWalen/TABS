@@ -123,8 +123,8 @@ sudo rm -r /home/username/.config/openbox
 sudo apt remove --purge brave-browser openbox xinit xserver-xorg
 sudo apt autoremove
 ```
-
-
-License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+3. Updating
+To update Applications you can just use the usual updating method:
+```
+sudo apt update & sudo apt upgrade -y
+```
